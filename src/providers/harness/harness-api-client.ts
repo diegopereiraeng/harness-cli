@@ -77,6 +77,7 @@ export class Harness {
         }
         
         this.client = new GraphQLClient(`${this.apiBase}/graphql?accountId=${this.accountId}`, headers)
+
         this.secrets = new Secrets(this.client)
         this.secretManagers = new SecretManagers(this.client)
         this.applications = new Applications(this.client)

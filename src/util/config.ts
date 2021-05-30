@@ -1,5 +1,4 @@
 import { HarnessApiOptions } from '../providers/harness/harness-api-client'
-import { HarnessApiOptions2 } from '../providers/harness/harness-api-client2'
 
 export enum CredentialType {
     Git = 'Git',
@@ -30,11 +29,5 @@ export class Config {
         accountId: process.env.HARNESS_ACCOUNT_ID || '', // Need to better handle this
         username: process.env.HARNESS_USERNAME,
         password: process.env.HARNESS_PASSWORD,
-    }
-    public static Harness2: HarnessApiOptions2 = {
-        url: process.env.HARNESS_MANAGER_URL || 'https://app.harness.io',
-        accountId: process.env.HARNESS_ACCOUNT_ID2 || '', // Need to better handle this
-        username: process.env.HARNESS_USERNAME2,
-        password: process.env.HARNESS_PASSWORD2,
     }
 }

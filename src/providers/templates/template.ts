@@ -7,7 +7,6 @@ import { RunHarnessCLICommand } from './steps/run-harness-cli-command'
 import { CreateApplicationStep } from './steps/create-application'
 import { DumpWorkspace } from './steps/dump-workspace'
 import { PushToDestination } from './steps/push-to-destination'
-import { PushToDestination2 } from './steps/push-to-destination2'
 
 export interface TemplateRef {
     source: string
@@ -85,8 +84,6 @@ export class Template {
                 this.steps.push(new DumpWorkspace(step.name, { destination: step.destination }))
             } else if (step.type === StepType.PushToDestination) {
                 this.steps.push(new PushToDestination(step.name, { files: stepFiles, destination: step.destination }))
-            } else if (step.type === StepType.PushToDestination2) {
-                this.steps.push(new PushToDestination2(step.name, { files: stepFiles, destination: step.destination }))
             }  else {
                 throw new Error('Invalid step type')
             }
@@ -112,7 +109,7 @@ export class Template {
             dryRun: dryRun,
         }
 
-        const finalStep = new PushToDestination2('Push changes to destination after all steps complete', { 
+        const finalStep = new PushToDestination('Push changes to destination after all steps complete', { 
             files: ['**/*.yaml'],
             destination: {
                 accountId: context.vars.destination.accountId,

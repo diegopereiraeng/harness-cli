@@ -6,7 +6,7 @@ import { Harness } from '../harness/harness-api-client'
 import { RunHarnessCLICommand } from './steps/run-harness-cli-command'
 import { CreateApplicationStep } from './steps/create-application'
 import { DumpWorkspace } from './steps/dump-workspace'
-import { PushToDestination } from './steps/push-to-destination'
+import { PushToDestination2 } from './steps/push-to-destination2'
 
 export interface TemplateRef {
     source: string
@@ -109,7 +109,7 @@ export class Template {
             dryRun: dryRun,
         }
 
-        const finalStep = new PushToDestination('Push changes to destination after all steps complete', { 
+        const finalStep = new PushToDestination2('Push changes to destination after all steps complete', { 
             files: ['**/*.yaml'],
             destination: {
                 accountId: context.vars.destination.accountId,

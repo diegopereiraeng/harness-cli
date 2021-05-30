@@ -14,6 +14,7 @@ export enum StepType {
     CreateApplication = 'CreateApplication',
     DumpWorkspace = 'DumpWorkspace',
     PushToDestination = 'PushToDestination',
+    PushToDestination2 = 'PushToDestination2',
     // RegexReplace = 'RegexReplace',
     // RunContainer = 'RunContainer',
     // JSONPatch = 'JSONPatch',

@@ -29,5 +29,9 @@ export class Config {
         accountId: process.env.HARNESS_ACCOUNT_ID || '', // Need to better handle this
         username: process.env.HARNESS_USERNAME,
         password: process.env.HARNESS_PASSWORD,
+        url2: process.env.HARNESS_MANAGER_URL2 || 'https://app.harness.io',
+        accountId2: process.env.HARNESS_ACCOUNT_ID2 || '', // Need to better handle this
+        username2: process.env.HARNESS_USERNAME2,
+        password2: process.env.HARNESS_PASSWORD2,
     }
 }

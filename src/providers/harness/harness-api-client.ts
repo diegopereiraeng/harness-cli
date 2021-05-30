@@ -65,11 +65,6 @@ export class Harness {
         this.username = options.username || Config.Harness.username
         this.password = options.password || Config.Harness.password
         this.accountId = options.accountId || Config.Harness.accountId
-        // Different Account Destination
-        this.apiKey = options.apiKey2 || Config.Harness.apiKey2
-        this.username = options.username2 || Config.Harness.username2
-        this.password = options.password2 || Config.Harness.password2
-        this.accountId = options.accountId2 || Config.Harness.accountId2
 
         if (options.rateLimit) {
             // I think i'd rather use https://www.npmjs.com/package/bottleneck instead
@@ -89,18 +84,8 @@ export class Harness {
         } else {
             throw new Error('Either API Key or username/password are required')
         }
-        if (this.apiKey2) {
-            headers2['x-api-key'] = this.apiKey2
-        } else if (this.username2 && this.password2) {
-            const account = await Harness.login(this.username2, this.password2, this.managerUrl2)
-            this.bearerToken = account.token
-            headers2.authorization = `Bearer ${this.bearerToken}`
-        } else {
-            throw new Error('Either API Key22 or username2/password2 are required')
-        }
         
         this.client = new GraphQLClient(`${this.apiBase}/graphql?accountId=${this.accountId}`, headers)
-        this.client2 = new GraphQLClient(`${this.apiBase}/graphql?accountId=${this.accountId2}`, headers2)
         this.secrets = new Secrets(this.client)
         this.secretManagers = new SecretManagers(this.client)
         this.applications = new Applications(this.client)

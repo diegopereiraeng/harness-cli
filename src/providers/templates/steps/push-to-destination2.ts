@@ -2,18 +2,18 @@ import { StepType, Step } from '../steps'
 import { TemplateExecutionContext } from '../template'
 import { File } from '../../../util/filesystem'
 import minimatch from 'minimatch'
-import { HarnessStorageProvider } from '../../storage/harness-api-storage'
-import { HarnessApiOptions, Harness } from '../../harness/harness-api-client2'
+import { HarnessStorageProvider } from '../../storage/harness-api-storage2'
+import { HarnessApiOptions2, Harness } from '../../harness/harness-api-client2'
 import _ from 'lodash'
 
 export type PushToDestinationOptions = {
-    destination?: HarnessApiOptions
+    destination?: HarnessApiOptions2
     files: string[]
 }
 
 export class PushToDestination2 extends Step {
     type = StepType.PushToDestination2
-    destination?: HarnessApiOptions
+    destination?: HarnessApiOptions2
 
     public constructor(name: string, opts: PushToDestinationOptions) {
         super(name, opts.files)

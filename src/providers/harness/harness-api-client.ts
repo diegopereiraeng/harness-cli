@@ -19,10 +19,6 @@ export interface HarnessApiOptions {
     apiKey?: string,
     username?: string,
     password?: string,
-    accountId2: string,
-    apiKey2?: string,
-    username2?: string,
-    password2?: string,
     managerUrl?: string,
     bearerToken?: string,
     url?: string,
@@ -39,10 +35,6 @@ export class Harness {
     apiKey?: string;
     username?: string;
     password?: string;
-    accountId2: string;
-    apiKey2?: string;
-    username2?: string;
-    password2?: string;
     bearerToken?: string;
     
     client!: GraphQLClient;
@@ -74,7 +66,6 @@ export class Harness {
 
     async init() {
         const headers: any = { 'Content-Type': 'application/json' }
-        const headers2: any = { 'Content-Type': 'application/json' }
         if (this.apiKey) {
             headers['x-api-key'] = this.apiKey
         } else if (this.username && this.password) {

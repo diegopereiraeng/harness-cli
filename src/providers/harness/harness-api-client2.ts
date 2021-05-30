@@ -14,15 +14,11 @@ import { Config } from '../../util/config'
 import { SecretManagers } from './secret-managers'
 import { Connectors } from './connectors/connectors'
 
-export interface HarnessApiOptions {
+export interface HarnessApiOptions2 {
     accountId: string,
     apiKey?: string,
     username?: string,
     password?: string,
-    accountId2: string,
-    apiKey2?: string,
-    username2?: string,
-    password2?: string,
     managerUrl?: string,
     bearerToken?: string,
     url?: string,
@@ -39,12 +35,7 @@ export class Harness {
     apiKey?: string;
     username?: string;
     password?: string;
-    accountId2: string;
-    apiKey2?: string;
-    username2?: string;
-    password2?: string;
     bearerToken?: string;
-    
     client!: GraphQLClient;
     applications!: Applications;
     connectors!: Connectors
@@ -56,16 +47,14 @@ export class Harness {
     users!: Users
     configAsCode!: ConfigAsCode
 
-    constructor(options?: HarnessApiOptions) {
+    constructor(options?: HarnessApiOptions2) {
         options = options || Config.Harness
         this.apiBase = Harness.getApiBase(options.url)
         this.managerUrl = new URL(this.apiBase).origin
-
-        this.apiKey = options.apiKey2 || Config.Harness.apiKey2
-        this.username = options.username2 || Config.Harness.username2
-        this.password = options.password2 || Config.Harness.password2
-        this.accountId = options.accountId2 || Config.Harness.accountId2
-
+        this.apiKey = options.apiKey || Config.Harness.apiKey
+        this.username = options.username || Config.Harness.username
+        this.password = options.password || Config.Harness.password
+        this.accountId = options.accountId || Config.Harness.accountId
 
         if (options.rateLimit) {
             // I think i'd rather use https://www.npmjs.com/package/bottleneck instead
@@ -80,7 +69,7 @@ export class Harness {
         } else if (this.username && this.password) {
             const account = await Harness.login(this.username, this.password, this.managerUrl)
             this.bearerToken = account.token
-            headers2.authorization = `Bearer ${this.bearerToken}`
+            headers.authorization = `Bearer ${this.bearerToken}`
         } else {
             throw new Error('Either API Key or username/password are required')
         }
@@ -130,7 +119,7 @@ export class Harness {
     static async fromUrl(url: string) {
         const parsed = new URL(url)
 
-        const options: HarnessApiOptions = {
+        const options: HarnessApiOptions2 = {
             url: parsed.origin + parsed.pathname,
             accountId: '',
         }

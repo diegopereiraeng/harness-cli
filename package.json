@@ -1,11 +1,11 @@
 {
-    "name": "@ldhertert/harness-cli",
-    "version": "0.10.0",
+    "name": "@diegopereiraeng/harness-cli-template-se-tools",
+    "version": "0.10.1",
     "author": "Luke Hertert @ldhertert",
     "bin": {
         "harness": "./bin/run"
     },
-    "bugs": "https://github.com/ldhertert/harness-cli/issues",
+    "bugs": "https://github.com/diegopereiraeng/harness-cli-template-se-tools/issues",
     "dependencies": {
         "-": "0.0.1",
         "@kubernetes/client-node": "^0.13.0",
@@ -52,7 +52,7 @@
         "prettier": "2.2.1",
         "release-it": "^14.2.2",
         "ts-node": "^9.1.1",
-        "typescript": "^4.1.2"
+        "typescript": "^4.3.2"
     },
     "engines": {
         "node": ">=12.18.0"
@@ -63,7 +63,7 @@
         "/npm-shrinkwrap.json",
         "/oclif.manifest.json"
     ],
-    "homepage": "https://github.com/ldhertert/harness-cli",
+    "homepage": "https://github.com/diegopereiraeng/harness-cli-template-se-tools",
     "keywords": [
         "oclif"
     ],
@@ -80,7 +80,7 @@
     "pkg": {
         "scripts": "./lib/**/*.js"
     },
-    "repository": "ldhertert/harness-cli",
+    "repository": "diegopereiraeng/harness-cli-template-se-tools",
     "scripts": {
         "lint": "eslint ./src",
         "compile": "./node_modules/typescript/bin/tsc",

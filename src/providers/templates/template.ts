@@ -2,7 +2,7 @@ import { Variable } from './variables'
 import { Step, StepType, FileSourceStep, RenameFileStep, SetValueStep } from './steps'
 import { File } from '../../util/filesystem'
 import _ from 'lodash'
-import { Harness } from '../harness/harness-api-client'
+import { Harness } from '../harness/harness-api-client2'
 import { RunHarnessCLICommand } from './steps/run-harness-cli-command'
 import { CreateApplicationStep } from './steps/create-application'
 import { DumpWorkspace } from './steps/dump-workspace'
@@ -112,7 +112,7 @@ export class Template {
             dryRun: dryRun,
         }
 
-        const finalStep = new PushToDestination('Push changes to destination after all steps complete', { 
+        const finalStep = new PushToDestination2('Push changes to destination after all steps complete', { 
             files: ['**/*.yaml'],
             destination: {
                 accountId: context.vars.destination.accountId,

@@ -5,6 +5,9 @@
     "bin": {
         "harness": "./bin/run"
     },
+    "publishConfig": {
+        "registry":"https://npm.pkg.github.com"
+      },
     "bugs": "https://github.com/diegopereiraeng/harness-cli-template-se-tools/issues",
     "dependencies": {
         "-": "0.0.1",
@@ -80,7 +83,7 @@
     "pkg": {
         "scripts": "./lib/**/*.js"
     },
-    "repository": "diegopereiraeng/harness-cli-template-se-tools",
+    "repository": "git://github.com/diegopereiraeng/harness-cli-template-se-tools.git",
     "scripts": {
         "lint": "eslint ./src",
         "compile": "./node_modules/typescript/bin/tsc",
@@ -98,3 +101,4 @@
     "types": "lib/index.d.ts",
     "release-it": {}
 }
+

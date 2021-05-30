@@ -21,7 +21,7 @@ echo "Creating git connector"
 harness connectors:create-git \
     --name test-github \
     --url https://github.com/luke-hertert/test-suite-repo.git \
-    --username ldhertert \
+    --username  \
     --passwordSecret test-github-token-secret
 
 

@@ -48,7 +48,7 @@ export class Harness {
     configAsCode!: ConfigAsCode
 
     constructor(options?: HarnessApiOptions2) {
-        options = options || Config.Harness
+        options = options || Config.Harness2
         this.apiBase = Harness.getApiBase(options.url)
         this.managerUrl = new URL(this.apiBase).origin
         this.apiKey = options.apiKey || Config.Harness.apiKey
